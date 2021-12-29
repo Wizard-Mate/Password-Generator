@@ -32,7 +32,7 @@ THEN the password is either displayed in an alert or written to the page.
 
 # Link to Deployed Application:
 
-https://wizard-mate.github.io/Basic-Portfolio/Password-Generator/
+https://wizard-mate.github.io/Password-Generator/
 
 # Screenshots:
 
