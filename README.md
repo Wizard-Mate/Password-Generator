@@ -28,7 +28,13 @@ THEN the password is either displayed in an alert or written to the page.
 
 # What I Did:
 
-1. I
+1. created constants for character choices as they will always stay the same
+2. created lets for user choices, as they will differ. also defaulted them to false globally.
+3. created various local variables.
+4. utilised window.prompt and window.confirm to allow user input.
+5. utilised the window.alert function to convey error message.
+6. utilised built-in math object.
+7. Made sure that final password would contain all character options selected by user, amd that the loop would stop when it reached the desired password length.
 
 # Link to Deployed Application:
 
@@ -38,8 +44,10 @@ https://wizard-mate.github.io/Password-Generator/
 
 1. Screenshot of my completed JS document.
 
-![Screenshot of my completed HTML and CSS documents side by side.](/assets/images/JS.png?raw=true "JS")
+![Screenshot of my completed JS document.](/assets/images/JS.png?raw=true "JS")
 
-2. Screenshot of the Website deployed as a GitHub Page.
+2. Screenshots of the Website deployed as a GitHub Page.
 
 ![Screenshot of the Website deployed as a GitHub Page.](/assets/images/Deployed-Website.png?raw=true "Deployed")
+
+![Screenshot of the Website deployed as a GitHub Page 2.](/assets/images/Deployed-Website2.png?raw=true "Deployed 2")

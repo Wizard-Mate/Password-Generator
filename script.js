@@ -1,24 +1,18 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var numbers = "0123456789";
-var specialChar = "!@#$%^&*()-_=+[]{}|;:',.<>/`~";
-var lowerCase = "abcdefghijklmnopqrstuvwxyz"
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-// function generatePassword() {
-//   console.log("Hey! You clicked the button!");
+// constants for inclusion possibilities
+const numbers = "0123456789";
+const specialChar = "!@#$%^&*()-_=+[]{}|;:',.<>/`~";
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// 1. Prompt the user for the password criteria
-  //  a. Password length 8 < 128
-  //  b. Lowercase, uppercase, numbers, special characters
-// 2. Validate the input.
-// 3. Generate the password based on criteria
-// 4. Deploy the password to the page. 
+// setting the default boolean values to false
+let wantsLower = false;
+let wantsUpper = false;
+let wantsSpec = false;
+let wantsNum = false;
 
-//   return "Password coming";
-// }
-
-// Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -31,17 +25,48 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // Generate Password function
-// add prompt asking for password length input. if cancel is clicked
+// add prompt asking for password length input. if cancel is clicked, show "Cancelled" in the password field.
 function generatePassword() {
   var passwordLength = window.prompt("Please choose a password length between 8 & 128 characters long.");
+  console.log(passwordLength)
+  console.log(typeof (passwordLength))
   if (!passwordLength) {
-    return
+    return "Cancelled"
   }
   // if incorrect number is added, an alert will tell the user.
-  if (passwordLength < 8 || passwordLength > 128) {
-    window.alert ("Invalid entry - Password must be between 8 & 128 Characters long!")
-    // text area will show
+  else if (passwordLength < 8 || passwordLength > 128) {
+    window.alert ("Invalid entry - Password must be between 8 & 128 characters long!")
+    // text area will show:
     return "Invalid Entry, Please Try Again."
   }
-}
+// asks the user which characters they want in their final password. console log from me confirming boolean response of window.confirm, troubleshooting from when code didnt work.
+      var finalPassword = "";
+      var charSet = "";
+      wantsLower = window.confirm("Would you like to include lowercase characters?");
+      wantsUpper = window.confirm("Would you like to include uppercase characters?");
+      wantsSpec = window.confirm("Would you like to include special characters?");
+      wantsNum = window.confirm("Would you like to include numbers characters?");
+      console.log(typeof (wantsNum))
+      console.log(wantsNum)
+    // adding selections for inclusion in final password
+        if (wantsLower) {
+          charSet += lowerCase.concat(charSet);
+        }
+        if (wantsUpper) {
+          charSet += upperCase.concat(charSet);
+        }
+        if (wantsSpec) {
+          charSet += specialChar.concat(charSet);
+        }
+        if (wantsNum) {
+          charSet += numbers.concat(charSet);
+        }
+  // creating the password. 
+    while (finalPassword.length < passwordLength) {
+      var doN = Math.floor(Math.random() * charSet.length);
+      var doM = charSet.charAt(doN);
+      finalPassword = finalPassword + doM;
+    }
 
+  return finalPassword;
+  }
