@@ -31,11 +31,17 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // Generate Password function
+// add prompt asking for password length input. if cancel is clicked
 function generatePassword() {
   var passwordLength = window.prompt("Please choose a password length between 8 & 128 characters long.");
   if (!passwordLength) {
     return
   }
-  passwordLength = window.prompt("Please choose a password length between 8 & 128 characters long.");
+  // if incorrect number is added, an alert will tell the user.
+  if (passwordLength < 8 || passwordLength > 128) {
+    window.alert ("Invalid entry - Password must be between 8 & 128 Characters long!")
+    // text area will show
+    return "Invalid Entry, Please Try Again."
+  }
 }
 
