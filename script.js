@@ -45,7 +45,7 @@ function generatePassword() {
       wantsLower = window.confirm("Would you like to include lowercase characters?");
       wantsUpper = window.confirm("Would you like to include uppercase characters?");
       wantsSpec = window.confirm("Would you like to include special characters?");
-      wantsNum = window.confirm("Would you like to include numbers characters?");
+      wantsNum = window.confirm("Would you like to include numbers?");
       console.log(typeof (wantsNum))
       console.log(wantsNum)
     // adding selections for inclusion in final password
